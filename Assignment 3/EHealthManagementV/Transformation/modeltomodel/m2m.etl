@@ -1,0 +1,67 @@
+/*
+	RULES
+*/
+rule EHealthManagement2EHealthManagementV
+	transform p : EHealthManagement!Project
+	to t : EHealthManagementV!Table {
+	
+	t.id = "EHealthManagementV";
+	
+	for (d in UserInterface.all) {
+		t.createRow(Sequence{d.getId(), d.Users.Usertypes});
+	}	
+}
+
+rule User2Table 
+	transform User : EHealthManagement!User
+	to t : EHealthManagementV!Table {
+	
+	// only generate a table for Users with UserInterfaces
+  	//guard : wp.deliverables.size() > 0
+  
+	t.id = "User" + User.UserType + "_UserInterface";
+	t.createRow(Sequence{"UserInterface", "UserTypes"});
+	t.rows.addAll(User.UserInterface.equivalent());
+}
+
+rule UserInterface2Row 
+	transform d : EHealthManagement!EHealthManagementV
+	to r : StructuredContent!Row {
+	
+	r.createCell(d.UserInterfaceType);
+	
+}
+
+
+
+/*
+	OPERATIONS
+*/
+operation EHealthManagement!EHealthManagementV getId() {
+	return "D" + self.User.UserType;
+}
+
+operation EHealthManagement!Table createRow(content : Sequence) {
+	var row : new EHealthManagement!Row;
+	for (c in content) {
+		row.createCell(c);
+	}
+	self.rows.add(row);
+}
+
+operation EHealthManagement!Row createCell(content : Any) {
+	var cell : new EHealthManagement!Cell;
+	cell.content = content + "";
+	self.cells.add(cell);
+}
+
+
+/*
+	POST
+*/
+post {
+  // Put all produced tables under a root Content element
+  var root : new EHealthManagement!Content;
+  root.tables.addAll(EHealthManagement!Table.all);
+  "Transformation finished".println();
+}

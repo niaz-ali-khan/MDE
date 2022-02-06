@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+   <head>
+      <title>EHM Demo</title>
+   </head>
+   <body>
+   
+	<h1>UserInterface[%=MessageType.EMessageTypeName%]</h1>
+	<table border="1">
+	  <tr><td>Message</td><td>Title</td><td>number</td></tr>
+	  [%for (d in MessageType){%] 
+	  <tr>
+	    <td>[%=MessageType.EMessageTypeName%].[%=d.EMessageTypeName%]</td>
+	    <td>[%=d.Size%]</td>
+
+	    
+	  </tr>
+	  [%}%]
+	</table>
+
+   </body>
+</html>

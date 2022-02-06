@@ -1,0 +1,10 @@
+rule MessageType2HTML
+	transform MessageType : MessageType { // For every UserInterface in the model ...
+       
+	
+	template : "systemtohtml.egl"
+    
+    // and produce this HTML file
+	target : "gen/MessageType" + MessageType.EMessageTypeName + ".html" 
+
+}

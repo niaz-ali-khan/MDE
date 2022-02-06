@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/EHealthManagementV/src-gen" creationIcons="false"
+    editDirectory="/EHealthManagementV.edit/src-gen" editorDirectory="/EHealthManagementV.editor/src-gen"
+    modelPluginID="EHealthManagementV" modelName="EHealthManagementV" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>eHealthManagementV.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="EHealthManagementV" disposableProviderFactory="true" ecorePackage="eHealthManagementV.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eHealthManagementV.ecore#//AllowedRepresentationInterfaceTypes">
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedRepresentationInterfaceTypes/DoctorProfile"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedRepresentationInterfaceTypes/PatientProfile"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedRepresentationInterfaceTypes/MedicineList"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedRepresentationInterfaceTypes/PrescriptionView"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedRepresentationInterfaceTypes/DiagnosysView"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eHealthManagementV.ecore#//AllowedUserTypes">
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedUserTypes/Doctor"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedUserTypes/Patient"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedUserTypes/SystemAdmin"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eHealthManagementV.ecore#//AllowedCommunicationInterfaceTypes">
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedCommunicationInterfaceTypes/CommunicationView"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedCommunicationInterfaceTypes/NotificationView"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedCommunicationInterfaceTypes/FeedbackView"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eHealthManagementV.ecore#//AllowedUserInterfaces">
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedUserInterfaces/ProfileView"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedUserInterfaces/InformationView"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eHealthManagementV.ecore#//AllowedAttributeTypes">
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedAttributeTypes/EBoolean"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedAttributeTypes/EDate"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedAttributeTypes/EString"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedAttributeTypes/EVarchar"/>
+      <genEnumLiterals ecoreEnumLiteral="eHealthManagementV.ecore#//AllowedAttributeTypes/IMAGE"/>
+    </genEnums>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//Users">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//Users/UserTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//Users/UserValidity"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//UserInterfaces">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//UserInterfaces/UserInterfacesTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//UserInterfaces/UserInterfacesValidity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eHealthManagementV.ecore#//UserInterfaces/users"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//RepresentationInterfaces">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//RepresentationInterfaces/RepresentationInterfacesTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//RepresentationInterfaces/RepresentationInterfacesValidity"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//CommunicationInterfaces">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//CommunicationInterfaces/CommunicationInterfacesTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//CommunicationInterfaces/CommunicationInterfacesValidity"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//ImageUI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//ImageUI/EImageUIName"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//TextUI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//TextUI/ETextUIName"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//VideoUI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//VideoUI/EVdeoUIName"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//DocumentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//DocumentType/EDocumentTypeName"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//DataSetType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//DataSetType/EDataSetTypeName"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//MessageType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//MessageType/EMessageTypeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//MessageType/Size"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//ImageMessage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//ImageMessage/EImageMessageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//ImageMessage/ImageSize"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//TextMessage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//TextMessage/ETextMessageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//TextMessage/TextSize"/>
+    </genClasses>
+    <genClasses ecoreClass="eHealthManagementV.ecore#//FileMessage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//FileMessage/EFileMessageName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eHealthManagementV.ecore#//FileMessage/FileSize"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

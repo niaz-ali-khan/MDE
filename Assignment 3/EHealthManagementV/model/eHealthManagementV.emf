@@ -1,0 +1,90 @@
+@namespace(uri="http://www.example.org/eHealthManagementV", prefix="eHealthManagementV")
+package eHealthManagementV;
+
+enum AllowedRepresentationInterfaceTypes {
+	DoctorProfile = 0;
+	PatientProfile = 1;
+	MedicineList = 2;
+	PrescriptionView = 3;
+	DiagnosysView = 4;
+}
+
+enum AllowedUserTypes {
+	Doctor = 0;
+	Patient = 1;
+	SystemAdmin = 2;
+}
+
+enum AllowedCommunicationInterfaceTypes {
+	CommunicationView = 0;
+	NotificationView = 1;
+	FeedbackView = 2;
+}
+
+enum AllowedUserInterfaces {
+	ProfileView = 0;
+	InformationView = 1;
+}
+
+enum AllowedAttributeTypes {
+	EBoolean = 0;
+	EDate = 1;
+	EString = 2;
+	EVarchar = 3;
+	IMAGE = 4;
+}
+
+class Users : java.lang.Object {
+	attr AllowedUserTypes UserTypes;
+	attr boolean UserValidity = false;
+}
+
+class UserInterfaces : UserInterfaces {
+	attr AllowedUserInterfaces UserInterfacesTypes;
+	attr boolean UserInterfacesValidity = true;
+	ref Users users;
+}
+
+class RepresentationInterfaces extends UserInterfaces : RepresentationInterfaces {
+	attr AllowedRepresentationInterfaceTypes RepresentationInterfacesTypes;
+	attr boolean RepresentationInterfacesValidity = true;
+}
+
+class CommunicationInterfaces extends UserInterfaces : CommunicationInterfaces {
+	attr AllowedCommunicationInterfaceTypes CommunicationInterfacesTypes;
+	attr boolean CommunicationInterfacesValidity;
+}
+
+class ImageUI extends RepresentationInterfaces : ImageUI {
+	attr String EImageUIName;
+}
+
+class TextUI extends RepresentationInterfaces : TextUI {
+	attr String ETextUIName;
+}
+
+class VideoUI extends RepresentationInterfaces : VideoUI {
+	attr String EVdeoUIName;
+}
+
+class DocumentType extends CommunicationInterfaces : DocumentType {
+	attr String EDocumentTypeName;
+}
+
+class DataSetType extends CommunicationInterfaces : DataSetType {
+	attr String EDataSetTypeName;
+}
+
+class MessageType extends CommunicationInterfaces : MessageType {
+	attr String EMessageTypeName;
+}
+
+class ImageMessage extends MessageType : java.lang.Object {
+}
+
+class TextMessage extends MessageType : java.lang.Object {
+}
+
+class FileMessage extends MessageType : java.lang.Object {
+}
+

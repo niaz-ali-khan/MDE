@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated eHealthManagementV -->
+      <package
+            uri="http://www.example.org/eHealthManagementV"
+            class="eHealthManagementV.EHealthManagementVPackage"
+            genModel="model/eHealthManagementV.genmodel"/>
+   </extension>
+
+
+<extension  point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
+<file filePath="model/UserInterfaces.view"/>
+</extension>
+</plugin>
