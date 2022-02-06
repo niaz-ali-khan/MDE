@@ -1,0 +1,4 @@
+//Adding new User from EOL
+var a : new User;
+a.UserTypes="Doctor";
+eHealthManagement.all.first().User.add(a);

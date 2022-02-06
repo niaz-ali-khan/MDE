@@ -1,0 +1,2 @@
+
+delete User.all.selectOne(a|a.UserTypes="Doctor");

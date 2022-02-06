@@ -1,0 +1,23 @@
+context MessageType {
+
+	constraint NameNotEmpty {
+		check: self.name.isDefined()
+	}
+
+	
+	critique NameStartsWithUpperCase{
+
+		guard: self.satisfies("NameNotEmpty")
+		
+		check: self.name = self.name.firstToUpperCase()
+
+		fix {
+			
+			title: "Rename to "+ self.name.firstToUpperCase()
+			
+			do {
+				self.name = self.name.firstToUpperCase();
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+//RepresentationInterface.getAllOfType().size.println;
+//MessageType.getAllOfType().size.println;
+//MessageType.EMessageTypeName.println;
+User.all.println;
+UserInterface.name.length.println;
+TextUI.size.println;
+
+
+for( RepresentationInterface in RepresentationInterface.all){
+  RepresentationInterface.hasnext().println();
+}
+
+operation UserInterface hasnext(): Boolean{
+return not self.isEmpty();
+}
+
+
+
+
+
+
