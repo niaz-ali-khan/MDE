@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="eHealthManagement" version="12.0.0.2017041100">
+  <ownedViewpoints name="MyViewpoint" modelFileExtension="eHealthManagement">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" domainClass="eHealthManagement::User" enablePopupBars="true">
+      <metamodel href="../../EHealthManagement/model/eHealthManagement.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="UserInterfaceNode" domainClass="eHealthManagement::UserInterface">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="UserNode" domainClass="eHealthManagement::User">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="UsertoInterfaceEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='UserNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='UserInterfaceNode']" domainClass="eHealthManagement::User" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="InterfacetoInterfaceEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='UserInterfaceNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='UserInterfaceNode']">
+          <style lineStyle="dot" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Create">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="UserInterface" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='UserInterfaceNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Interface" referenceName="users">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'interface'+container.users->filter(eHealthManagement::UserInterface)->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="UsertoInterface" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='UsertoInterfaceEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="live.eHealthManagement.Services"/>
+  </ownedViewpoints>
+</description:Group>

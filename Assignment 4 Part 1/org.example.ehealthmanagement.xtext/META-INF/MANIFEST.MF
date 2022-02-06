@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.example.ehealthmanagement.xtext
+Bundle-ManifestVersion: 2
+Bundle-Name: org.example.ehealthmanagement.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.example.ehealthmanagement.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: EHealthManagement,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.example.ehealthmanagement.xtext,
+ org.example.ehealthmanagement.xtext.validation,
+ org.example.ehealthmanagement.xtext.scoping,
+ org.example.ehealthmanagement.xtext.generator,
+ org.example.ehealthmanagement.xtext.serializer,
+ org.example.ehealthmanagement.xtext.services,
+ org.example.ehealthmanagement.xtext.parser.antlr.internal,
+ org.example.ehealthmanagement.xtext.parser.antlr,
+ org.example.ehealthmanagement.xtext.formatting2
+Import-Package: org.apache.log4j

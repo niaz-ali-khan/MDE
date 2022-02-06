@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eHealthManagement" nsURI="http://www.example.org/eHealthManagement"
+    nsPrefix="eHealthManagement">
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserTypes" eType="#//AllowedUserTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedUserTypes">
+    <eLiterals name="Doctor"/>
+    <eLiterals name="Patient" value="1"/>
+    <eLiterals name="SystemAdmin" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserInterfaces" eType="#//AllowedUserInterfaces"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedUserInterfaces">
+    <eLiterals name="ProfileView"/>
+    <eLiterals name="InformationView" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedAttributeTypes">
+    <eLiterals name="EBoolean"/>
+    <eLiterals name="EDate" value="1" literal="BOOLEAN"/>
+    <eLiterals name="EString" value="2"/>
+    <eLiterals name="EVarchar" value="3"/>
+    <eLiterals name="IMAGE" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedCommunicationInterfaceTypes">
+    <eLiterals name="CommunicationView"/>
+    <eLiterals name="NotificationView" value="1" literal="BOOLEAN"/>
+    <eLiterals name="FeedbackView" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedRepresentationInterfaceTypes">
+    <eLiterals name="DoctorProfile"/>
+    <eLiterals name="PatientProfile" value="1" literal="BOOLEAN"/>
+    <eLiterals name="MedicineList" value="2"/>
+    <eLiterals name="PrescriptionView" value="3"/>
+    <eLiterals name="DiagnosysView" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RepresentationInterface" eSuperTypes="#//UserInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RepresentationInterfaces"
+        eType="#//AllowedRepresentationInterfaceTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationInterface" eSuperTypes="#//UserInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CommunicationInterfaces"
+        eType="#//AllowedCommunicationInterfaceTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextUI" eSuperTypes="#//RepresentationInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ETextUIName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageUI" eSuperTypes="#//RepresentationInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EImageUIName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageType" eSuperTypes="#//CommunicationInterface">
+    <eOperations name="InstantiateMessageInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EMessageTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentType" eSuperTypes="#//CommunicationInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDocumentTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSetType" eSuperTypes="#//CommunicationInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDataSetTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileMessage" eSuperTypes="#//MessageType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EFileMessageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" eType="#//Attributes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageMessage" eSuperTypes="#//MessageType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" eType="#//Attributes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EImageMessageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextMessage" eSuperTypes="#//MessageType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" eType="#//Attributes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ETextMessageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDataTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//DataType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EEntityName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attributes" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventmessagetype" eType="#//EventMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EAttributesName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageExchangeStandard">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EMessageExchangeStandardName"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventMessageType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EEventMessageTypeName"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageexchangestandard"
+        eType="#//MessageExchangeStandard"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIImage" eSuperTypes="#//ImageUI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EUIImageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIString" eSuperTypes="#//TextUI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EUIStringName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIVarchar" eSuperTypes="#//TextUI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EUIVarcharName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EDate" eSuperTypes="#//Attributes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EDateDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EBoolean" eSuperTypes="#//Attributes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EBooleanDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EString" eSuperTypes="#//Attributes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EStringDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EVarchar" eSuperTypes="#//Attributes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EVarcharDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
