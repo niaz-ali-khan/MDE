@@ -1,0 +1,2 @@
+//deleting an UI from EOL
+delete UserInterface.all.selectOne(a|a.UserInterfaceType.name="ProfileView");

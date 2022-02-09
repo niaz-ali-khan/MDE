@@ -1,0 +1,4 @@
+//Adding new UserInterface from EOL
+var a : new UserInterface;
+a.UserInterfaceType="ProfileView";
+EHealthManagement.all.first().UserInterface.add(a);

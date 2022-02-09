@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eHealthManagement" nsURI="http://www.example.org/eHealthManagement"
+    nsPrefix="eHealthManagement">
+  <eClassifiers xsi:type="ecore:EClass" name="UserInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserInterfaceType" eType="#//AllowedUserInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserInterfaceValidity"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="representationinterface"
+        lowerBound="1" upperBound="-1" eType="#//RepresentationInterface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicationinterface"
+        lowerBound="1" upperBound="-1" eType="#//CommunicationInterface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageexchangestandard"
+        upperBound="-1" eType="#//MessageExchangeStandard" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" upperBound="-1"
+        eType="#//DataType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserType" eType="#//AllowedUserType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UserValidity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedUserType">
+    <eLiterals name="Doctor"/>
+    <eLiterals name="Patient" value="1"/>
+    <eLiterals name="SystemAdmin" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedUserInterface">
+    <eLiterals name="ProfileView"/>
+    <eLiterals name="InformationView" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RepresentationInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RepresentationInterfaceType"
+        eType="#//AllowedRepresentationInterfaceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RepresentationInterfaceValidity"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imageui" upperBound="-1"
+        eType="#//ImageUI" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="textui" upperBound="-1"
+        eType="#//TextUI" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="videoui" upperBound="-1"
+        eType="#//VideoUI" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CommunicationInterfaceType"
+        eType="#//AllowedCommunicationInterfaceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CommunicationInterfaceValidity"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messagetype" upperBound="-1"
+        eType="#//MessageType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documenttype" upperBound="-1"
+        eType="#//DocumentType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasettype" upperBound="-1"
+        eType="#//DatasetType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedCommunicationInterfaceType">
+    <eLiterals name="CommunicationView"/>
+    <eLiterals name="NotificationView" value="1"/>
+    <eLiterals name="FeedbackView" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedRepresentationInterfaceType">
+    <eLiterals name="DoctorProfile"/>
+    <eLiterals name="PatientProfile" value="1"/>
+    <eLiterals name="MedicineList" value="2"/>
+    <eLiterals name="PrescribtionView" value="3"/>
+    <eLiterals name="DianosysView" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageUI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImageUIName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImageUIType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImageUISize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextUI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TextUIName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TextUIType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TextUISize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VideoUI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VideoUIName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VideoUIType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VideoUISize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatasetType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DatasetTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DatasetTypeSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DatasetTypePropagationStatus"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DocumentTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DocumentTypeSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MessageTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MessageTypeSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imagemessge" upperBound="-1"
+        eType="#//ImageMessage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filemessage" upperBound="-1"
+        eType="#//FileMessage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="textmessage" upperBound="-1"
+        eType="#//TextMessage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextMessage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TextMessageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TextMessageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileMessage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FileMessageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FileMessageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageMessage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImageMessageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImageMessageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataTypeSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" upperBound="-1"
+        eType="#//Entity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EntityName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EntitySize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AllowedAttributeType" eType="#//AllowedAttributeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttributeSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventmessagetype" eType="#//EventMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cimage" upperBound="-1"
+        eType="#//CImage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cstring" upperBound="-1"
+        eType="#//CString" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cvarchar" upperBound="-1"
+        eType="#//CVarchar" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AllowedAttributeType">
+    <eLiterals name="CImage"/>
+    <eLiterals name="CString" value="1"/>
+    <eLiterals name="CVarchar" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageExchangeStandard">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MessageExchangeStandardName"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventMessageType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventMessageTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageexchangestandard"
+        eType="#//MessageExchangeStandard"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CVarchar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CVarcharName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CVarcharSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CStringName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CStringSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CImage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CImageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CImageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test" eSuperTypes="#//ImageUI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

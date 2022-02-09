@@ -1,0 +1,40 @@
+UserInterface.getAllOfType().size.println();
+UserInterface.all.size.println(); 
+MessageType.all.size.println();
+
+for(userinterface in UserInterface.all){
+if(userinterface.UserInterfaceType.name.length>10){
+
+ userinterface.UserInterfaceType.println();
+}
+}
+/* set= unordered,unique
+sequence= ordered, non-unique
+orderedset= ordered, unique
+bag= unordered,non-unique
+*/
+var filtered: Sequence;
+for(userinterface in UserInterface.all){
+if(userinterface.UserInterfaceType.name.length>5){
+
+filtered.add(userinterface);
+}
+}
+filtered.size().println();
+
+/*UserInterface.all.collect(a|a.UserInterfaceValidity);
+
+for(messagetype in MessageType.all ){
+messagetype.hasNext().println();
+}*/
+
+
+
+operation UserInterface hasNext(): Boolean{
+return not self.representationinterface.isEmpty();
+}
+
+
+
+
+
